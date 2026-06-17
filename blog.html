@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI人相診断を無料でやってみた｜写真1枚で性格・才能・運勢がわかる2026年版</title>
+<meta name="description" content="AI人相診断が無料で体験できる。写真をアップするだけで性格・才能・カリスマ性・運気をスコア診断。SNSでシェアして友達と比較しよう。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+:root { --bg:#0d0d14; --card:#1a1a2a; --gold:#f5c842; --white:#f0eee8; --muted:#888; --border:rgba(255,255,255,0.08); --paper:#fafaf8; --ink:#1a1a1a; --accent:#8b5cf6; }
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--paper); color:var(--ink); font-family:'Noto Sans JP',sans-serif; font-size:16px; line-height:1.8; }
+.site-header { border-bottom:1px solid rgba(255,255,255,0.08); padding:0 24px; height:52px; display:flex; align-items:center; justify-content:space-between; background:var(--bg); position:sticky; top:0; z-index:10; }
+.logo { font-size:1rem; font-weight:700; color:var(--gold); text-decoration:none; }
+.header-cta { background:linear-gradient(135deg,#8b5cf6,#6d28d9); color:#fff; border:none; padding:8px 18px; border-radius:4px; font-size:0.8rem; font-weight:700; font-family:'Noto Sans JP',sans-serif; cursor:pointer; }
+.hero-article { background:linear-gradient(135deg,var(--bg) 0%,#1a0a2e 100%); color:var(--white); padding:60px 24px; text-align:center; }
+.hero-article .eyebrow { font-size:0.72rem; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:16px; }
+.hero-article h1 { font-size:clamp(1.5rem,4vw,2.2rem); font-weight:900; line-height:1.3; margin-bottom:16px; }
+.hero-article .lead { font-size:1rem; color:var(--muted); max-width:560px; margin:0 auto; font-weight:300; }
+.container { max-width:720px; margin:0 auto; padding:48px 24px; }
+h2 { font-size:1.4rem; font-weight:700; margin:48px 0 16px; padding-left:12px; border-left:3px solid var(--accent); }
+h3 { font-size:1.1rem; font-weight:700; margin:32px 0 12px; }
+p { margin-bottom:16px; color:#333; }
+.toc { background:#fff; border:1px solid #e5e3de; border-radius:8px; padding:24px; margin-bottom:40px; }
+.toc-title { font-weight:700; margin-bottom:12px; font-size:0.9rem; }
+.toc ol { padding-left:20px; }
+.toc li { margin-bottom:6px; font-size:0.9rem; }
+.toc a { color:var(--accent); text-decoration:none; }
+.check-list { list-style:none; margin:16px 0; }
+.check-list li { padding:8px 0 8px 28px; position:relative; border-bottom:1px solid #e5e3de; font-size:0.95rem; }
+.check-list li::before { content:'✓'; position:absolute; left:0; color:var(--accent); font-weight:700; }
+.highlight-box { background:#f3f0ff; border-left:3px solid var(--accent); border-radius:0 8px 8px 0; padding:20px 24px; margin:24px 0; }
+.highlight-box p { margin:0; }
+.cta-box { background:linear-gradient(135deg,var(--bg),#1a0a2e); color:var(--white); border-radius:16px; padding:40px 32px; text-align:center; margin:48px 0; }
+.cta-box h3 { font-size:1.4rem; margin-bottom:8px; color:var(--gold); }
+.cta-box p { color:var(--muted); margin-bottom:24px; font-weight:300; }
+.cta-btn { display:inline-block; background:linear-gradient(135deg,#8b5cf6,#6d28d9); color:#fff; padding:16px 40px; border-radius:8px; font-weight:700; font-size:1rem; text-decoration:none; }
+.type-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin:24px 0; }
+.type-card { background:#fff; border:1px solid #e5e3de; border-radius:8px; padding:16px; }
+.type-emoji { font-size:1.5rem; margin-bottom:8px; display:block; }
+.type-name { font-weight:700; font-size:0.95rem; margin-bottom:4px; }
+.type-desc { font-size:0.82rem; color:#666; line-height:1.5; }
+.faq-item { border:1px solid #e5e3de; border-radius:8px; margin-bottom:12px; overflow:hidden; }
+.faq-q { padding:16px 20px; font-weight:700; background:#fff; font-size:0.95rem; }
+.faq-a { padding:16px 20px; background:#f7f5f0; font-size:0.9rem; color:#444; line-height:1.7; border-top:1px solid #e5e3de; }
+.related-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px; }
+.related-card { background:#fff; border:1px solid #e5e3de; border-radius:8px; padding:16px; text-decoration:none; color:var(--ink); }
+.related-card-title { font-size:0.9rem; font-weight:700; margin-bottom:4px; }
+.related-card-sub { font-size:0.78rem; color:#666; }
+@media(max-width:600px) { .type-grid{grid-template-columns:1fr} .related-grid{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <a href="/" class="logo">🔮 AI人相診断</a>
+  <button class="header-cta" onclick="location.href='/'">無料で診断する</button>
+</header>
+
+<div class="hero-article">
+  <div class="eyebrow">AI × 人相鑑定</div>
+  <h1>AI人相診断を無料でやってみた｜<br>写真1枚で性格・才能・運勢がわかる</h1>
+  <p class="lead">古来からの人相学をAIが現代解釈。あなたの顔が持つ隠れた才能と運命を読み解きます。</p>
+</div>
+
+<div class="container">
+  <div class="toc">
+    <div class="toc-title">📋 この記事の内容</div>
+    <ol>
+      <li><a href="#what">AI人相診断とは？</a></li>
+      <li><a href="#type">診断される顔タイプ8種類</a></li>
+      <li><a href="#how">使い方・手順</a></li>
+      <li><a href="#result">診断結果の見方</a></li>
+      <li><a href="#faq">よくある質問</a></li>
+    </ol>
+  </div>
+
+  <h2 id="what">AI人相診断とは？</h2>
+  <p>人相学（にんそうがく）は、顔の特徴から性格・運勢・才能を読み解く東洋の伝統的な学問です。古代中国から伝わり、日本でも江戸時代から広く用いられてきました。</p>
+  <p>当サービスは、この伝統的な人相学の知見とAI技術を組み合わせ、写真1枚と3つの質問からあなたの本質を診断します。</p>
+
+  <div class="highlight-box">
+    <p><strong>注目：</strong>SNSでシェアされやすい「診断系コンテンツ」の中でも、人相診断は特に拡散率が高いジャンルです。友達と結果を比べてみてください。</p>
+  </div>
+
+  <h3>診断できる4つの指標</h3>
+  <ul class="check-list">
+    <li><strong>カリスマ性：</strong>人を惹きつける力・リーダーシップの素質</li>
+    <li><strong>知性：</strong>分析力・記憶力・学習能力の高さ</li>
+    <li><strong>運気：</strong>現在の運勢・今後の流れ</li>
+    <li><strong>対人魅力：</strong>恋愛・友人関係における魅力度</li>
+  </ul>
+
+  <h2 id="type">診断される顔タイプ8種類</h2>
+  <div class="type-grid">
+    <div class="type-card"><span class="type-emoji">👑</span><div class="type-name">知性派カリスマ顔</div><div class="type-desc">静かな眼に宿る強い意志。場を支配する力を持つ</div></div>
+    <div class="type-card"><span class="type-emoji">🌟</span><div class="type-name">天才肌クリエイター顔</div><div class="type-desc">独自の美意識と発想力。芸術・創造分野で才能開花</div></div>
+    <div class="type-card"><span class="type-emoji">🤝</span><div class="type-name">癒し系調停者顔</div><div class="type-desc">人を和ませる笑顔と共感力。対人関係の達人</div></div>
+    <div class="type-card"><span class="type-emoji">⚡</span><div class="type-name">行動派開拓者顔</div><div class="type-desc">目標に向かう強い推進力。新しい道を切り開く</div></div>
+    <div class="type-card"><span class="type-emoji">🔬</span><div class="type-name">論理派分析者顔</div><div class="type-desc">緻密な思考と洞察力。データと事実で判断する</div></div>
+    <div class="type-card"><span class="type-emoji">🌸</span><div class="type-name">感性派アーティスト顔</div><div class="type-desc">豊かな感受性と表現力。感動を届ける才能</div></div>
+    <div class="type-card"><span class="type-emoji">🦁</span><div class="type-name">勝負師型リーダー顔</div><div class="type-desc">決断力と胆力。土壇場で真価を発揮する</div></div>
+    <div class="type-card"><span class="type-emoji">🌙</span><div class="type-name">神秘的直感者顔</div><div class="type-desc">鋭い直感と洞察力。見えないものを見通す力</div></div>
+  </div>
+
+  <h2 id="how">使い方・手順（所要時間：約1分）</h2>
+  <ul class="check-list">
+    <li><strong>Step 1：</strong>トップページで「写真を選ぶ」をクリックし、顔写真をアップロード</li>
+    <li><strong>Step 2：</strong>第一印象・性格・生まれ月の3問に答える</li>
+    <li><strong>Step 3：</strong>AIが人相を分析し、顔タイプ・4指標スコア・才能を表示</li>
+    <li><strong>Step 4：</strong>詳細鑑定レポート（¥480）で恋愛運・仕事運・金運も確認</li>
+  </ul>
+
+  <div class="cta-box">
+    <h3>🔮 今すぐ無料で人相診断</h3>
+    <p>写真1枚でOK。30秒で診断完了。<br>あなたの隠れた才能と運命を読み解きます。</p>
+    <a href="/" class="cta-btn">無料でAI人相診断を始める →</a>
+  </div>
+
+  <h2 id="result">診断結果の見方・活かし方</h2>
+  <h3>スコアの読み方</h3>
+  <p>各指標は60〜95点の範囲で表示されます。85点以上はその分野に特別な才能があることを示します。スコアが低い指標は「伸びしろ」として捉えてください。</p>
+
+  <h3>才能キーワードの活かし方</h3>
+  <p>診断で示されたキーワード（「洞察力」「共感力」など）は、転職の自己PR・副業の方向性・人間関係の改善のヒントになります。</p>
+
+  <h2 id="faq">よくある質問</h2>
+  <div class="faq-item">
+    <div class="faq-q">アップロードした写真はどう扱われますか？</div>
+    <div class="faq-a">写真は診断処理のみに使用され、サーバーには保存されません。第三者への提供も一切行いません。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">どんな写真が診断に適していますか？</div>
+    <div class="faq-a">顔全体が写っていれば何でもOKです。正面・斜め・笑顔・真顔、いずれも対応しています。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">詳細鑑定レポートには何が含まれますか？</div>
+    <div class="faq-a">恋愛運・仕事運・金運・相性の良いタイプ・開運アドバイスをAIが詳細に鑑定します（¥480）。</div>
+  </div>
+
+  <div style="border-top:1px solid #e5e3de;padding-top:32px;margin-top:48px">
+    <div style="font-weight:700;margin-bottom:16px">関連ツール</div>
+    <div class="related-grid">
+      <a href="https://ai-shindan-pi.vercel.app" class="related-card">
+        <div class="related-card-title">AIビジネス診断</div>
+        <div class="related-card-sub">起業・副業アイデアをAIが診断</div>
+      </a>
+      <a href="https://ai-resume-chi-amber.vercel.app" class="related-card">
+        <div class="related-card-title">AI職務経歴書ライター</div>
+        <div class="related-card-sub">10分で採用される書類を作成</div>
+      </a>
+    </div>
+  </div>
+</div>
+</body>
+</html>
