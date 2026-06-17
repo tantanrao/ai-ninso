@@ -3,615 +3,401 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI人相診断 — あなたの顔が語る、隠れた才能と運命</title>
+<title>AI人相診断 — 写真1枚で才能・性格・運勢を読み解く</title>
+<meta name="description" content="AI人相診断が無料で体験できる。写真をアップするだけでカリスマ性・知性・運気・対人魅力をスコア診断。SNSでシェアして友達と比較しよう。">
+<meta property="og:title" content="AI人相診断 — 写真1枚で才能・運命を読み解く">
+<meta name="twitter:card" content="summary_large_image">
+<!-- AdSense -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9815681802683480" crossorigin="anonymous"></script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap');
+:root{--bg:#080810;--bg2:#100f1e;--card:#141420;--gold:#f5c842;--gold2:#e8a020;--purple:#8b5cf6;--pink:#ec4899;--white:#f0eee8;--muted:#888;--border:rgba(255,255,255,0.07)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--white);font-family:'Noto Sans JP',sans-serif;min-height:100vh}
 
-:root {
-  --bg: #0d0d14;
-  --bg2: #13131e;
-  --card: #1a1a2a;
-  --border: rgba(255,255,255,0.08);
-  --gold: #f5c842;
-  --gold2: #e8a020;
-  --purple: #8b5cf6;
-  --pink: #ec4899;
-  --white: #f0eee8;
-  --muted: #888;
-}
+.header{height:54px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:rgba(8,8,16,0.95);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.logo{font-family:'Playfair Display',serif;font-size:0.95rem;font-style:italic;color:var(--gold)}
+.hnav a{font-size:0.78rem;color:var(--muted);text-decoration:none;margin-right:20px}
+.hbtn{background:linear-gradient(135deg,var(--purple),#6d28d9);color:#fff;border:none;padding:7px 18px;border-radius:6px;font-size:0.78rem;font-weight:700;font-family:'Noto Sans JP',sans-serif;cursor:pointer}
 
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { background: var(--bg); color: var(--white); font-family: 'Noto Sans JP', sans-serif; min-height: 100vh; overflow-x: hidden; }
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:60px 20px;background:radial-gradient(ellipse at 50% -10%,rgba(139,92,246,0.14) 0%,transparent 60%)}
+.hero-eyebrow{font-size:0.68rem;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border:1px solid rgba(245,200,66,0.2);padding:5px 14px;border-radius:100px;margin-bottom:24px;display:inline-block}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,6vw,3.8rem);font-style:italic;line-height:1.12;margin-bottom:16px;background:linear-gradient(135deg,var(--white) 20%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1rem;color:var(--muted);max-width:480px;margin:0 auto 14px;font-weight:300;line-height:1.7}
+.hero-proof{font-size:0.8rem;color:var(--muted);margin-bottom:36px}
+.hero-proof strong{color:var(--white)}
+.hero-cta{background:linear-gradient(135deg,var(--purple),#6d28d9);color:#fff;border:none;padding:17px 44px;font-size:1.05rem;font-weight:900;font-family:'Noto Sans JP',sans-serif;border-radius:10px;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;margin-bottom:10px}
+.hero-cta:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(139,92,246,0.3)}
+.hero-hint{font-size:0.75rem;color:var(--muted)}
+.trust-bar{display:flex;gap:40px;margin-top:52px;flex-wrap:wrap;justify-content:center}
+.titem{text-align:center}
+.tnum{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--white);display:block}
+.tlabel{font-size:0.68rem;color:var(--muted);letter-spacing:1px;margin-top:2px}
+.tdiv{width:1px;background:var(--border);align-self:stretch}
 
-/* HERO */
-.hero {
-  text-align: center;
-  padding: 64px 20px 48px;
-  background: radial-gradient(ellipse at 50% 0%, rgba(139,92,246,0.15) 0%, transparent 60%);
-  position: relative;
-}
-.hero::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right, transparent, var(--border), transparent);
-}
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.7rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  border: 1px solid rgba(245,200,66,0.2);
-  padding: 6px 16px;
-  border-radius: 100px;
-  margin-bottom: 24px;
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 6vw, 3.6rem);
-  font-style: italic;
-  line-height: 1.15;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, var(--white) 0%, var(--gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero p { font-size: 1rem; color: var(--muted); max-width: 480px; margin: 0 auto 40px; font-weight: 300; line-height: 1.7; }
+.upload-area{max-width:560px;margin:0 auto;padding:48px 20px}
+.drop-zone{border:2px dashed rgba(139,92,246,0.3);border-radius:18px;padding:52px 24px;text-align:center;cursor:pointer;transition:all 0.2s;background:rgba(139,92,246,0.03);position:relative}
+.drop-zone:hover,.drop-zone.drag{border-color:var(--purple);background:rgba(139,92,246,0.07)}
+.drop-zone input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer}
+.dz-icon{font-size:3.2rem;margin-bottom:16px;display:block}
+.dz-title{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.dz-sub{font-size:0.85rem;color:var(--muted);margin-bottom:24px;line-height:1.6}
+.dz-btn{background:linear-gradient(135deg,var(--purple),#6d28d9);color:#fff;border:none;padding:12px 32px;border-radius:8px;font-size:0.9rem;font-weight:700;font-family:'Noto Sans JP',sans-serif;cursor:pointer}
+.preview-wrap{display:none;text-align:center;margin-top:20px}
+.preview-img{width:110px;height:110px;object-fit:cover;border-radius:50%;border:3px solid var(--purple)}
+.preview-name{font-size:0.8rem;color:var(--muted);margin-top:8px}
 
-/* AD BANNER */
-.ad-banner {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 12px 20px;
-  text-align: center;
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  margin: 0 auto 32px;
-  max-width: 680px;
-}
-.ad-slot {
-  background: linear-gradient(135deg, #1a1a2a, #13131e);
-  border: 1px dashed rgba(255,255,255,0.1);
-  border-radius: 6px;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255,255,255,0.15);
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  max-width: 728px;
-  margin: 0 auto 24px;
-}
-.ad-slot-rect {
-  height: 250px;
-  max-width: 300px;
-  margin: 0 auto 24px;
-}
+.q-section{display:none;max-width:560px;margin:0 auto;padding:0 20px 48px}
+.q-section.active{display:block}
+.q-header{text-align:center;margin-bottom:32px}
+.q-header-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:var(--gold);margin-bottom:6px}
+.q-header-sub{font-size:0.82rem;color:var(--muted)}
+.qitem{margin-bottom:22px}
+.qlabel{font-size:0.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:700}
+.qopts{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.qopt{background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:12px 14px;cursor:pointer;transition:all 0.15s;text-align:left;color:var(--white);font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;font-weight:500}
+.qopt:hover,.qopt.selected{border-color:var(--purple);background:rgba(139,92,246,0.12)}
+.analyze-btn{width:100%;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#080810;border:none;padding:17px;font-size:0.95rem;font-weight:900;font-family:'Noto Sans JP',sans-serif;border-radius:10px;cursor:pointer;margin-top:24px;transition:opacity 0.15s,transform 0.1s}
+.analyze-btn:hover{opacity:0.88;transform:translateY(-1px)}
+.analyze-btn:disabled{opacity:0.35;cursor:not-allowed;transform:none}
+.start-btn{width:100%;background:linear-gradient(135deg,var(--purple),#6d28d9);color:#fff;border:none;padding:15px;font-size:0.92rem;font-weight:700;font-family:'Noto Sans JP',sans-serif;border-radius:10px;cursor:pointer;margin-top:20px}
 
-/* UPLOAD */
-.upload-area {
-  max-width: 560px;
-  margin: 0 auto 48px;
-  padding: 0 20px;
-}
-.upload-zone {
-  border: 2px dashed rgba(139,92,246,0.3);
-  border-radius: 16px;
-  padding: 48px 24px;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.2s;
-  background: rgba(139,92,246,0.03);
-  position: relative;
-}
-.upload-zone:hover { border-color: var(--purple); background: rgba(139,92,246,0.07); }
-.upload-zone.drag { border-color: var(--gold); background: rgba(245,200,66,0.05); }
-.upload-icon { font-size: 3rem; margin-bottom: 16px; }
-.upload-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
-.upload-sub { font-size: 0.85rem; color: var(--muted); margin-bottom: 24px; }
-.upload-btn {
-  background: linear-gradient(135deg, var(--purple), #6d28d9);
-  color: white;
-  border: none;
-  padding: 12px 32px;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 700;
-  font-family: 'Noto Sans JP', sans-serif;
-  cursor: pointer;
-  transition: opacity 0.15s;
-}
-.upload-btn:hover { opacity: 0.85; }
-input[type=file] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+.loading-wrap{display:none;text-align:center;padding:100px 20px}
+.loading-wrap.active{display:block}
+.l-crystal{font-size:5rem;animation:float 2s ease-in-out infinite;display:block;margin-bottom:24px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+.l-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-style:italic;color:var(--gold);margin-bottom:6px}
+.l-steps{list-style:none;margin:20px auto 0;max-width:240px;text-align:left}
+.l-steps li{font-size:0.82rem;color:var(--muted);padding:5px 0;display:flex;align-items:center;gap:8px;transition:color 0.3s}
+.l-steps li.active{color:var(--gold)}
+.ldot{width:5px;height:5px;border-radius:50%;background:var(--border);flex-shrink:0;transition:background 0.3s}
+.l-steps li.active .ldot{background:var(--gold)}
 
-/* PREVIEW */
-.preview-wrap { display: none; text-align: center; margin-top: 20px; }
-.preview-wrap img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; border: 3px solid var(--purple); }
-.preview-name { font-size: 0.85rem; color: var(--muted); margin-top: 8px; }
+.result-section{display:none;max-width:640px;margin:0 auto;padding:48px 20px 100px}
+.result-section.active{display:block}
 
-/* QUESTIONS */
-.questions-wrap {
-  display: none;
-  max-width: 560px;
-  margin: 0 auto;
-  padding: 0 20px 60px;
-}
-.questions-wrap.active { display: block; }
-.q-title { font-size: 1.1rem; font-weight: 700; margin-bottom: 24px; text-align: center; }
+.profile-card{display:flex;align-items:center;gap:20px;background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;margin-bottom:16px}
+.profile-img-wrap img{width:88px;height:88px;object-fit:cover;border-radius:50%;border:2px solid var(--gold);flex-shrink:0}
+.profile-img-wrap .placeholder{width:88px;height:88px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--pink));display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0}
+.profile-type{font-family:'Playfair Display',serif;font-size:1.3rem;font-style:italic;color:var(--gold);margin-bottom:4px}
+.profile-sub{font-size:0.82rem;color:var(--muted)}
 
-.q-item { margin-bottom: 20px; }
-.q-label { font-size: 0.82rem; font-weight: 700; color: var(--gold); margin-bottom: 10px; letter-spacing: 1px; }
-.q-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-.q-opt {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 0.82rem;
-  color: var(--white);
-  font-family: 'Noto Sans JP', sans-serif;
-  cursor: pointer;
-  transition: all 0.15s;
-  text-align: left;
-}
-.q-opt:hover { border-color: var(--purple); }
-.q-opt.selected { border-color: var(--purple); background: rgba(139,92,246,0.15); }
+.metrics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.metric-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+.mc-label{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.mc-bar{height:4px;background:rgba(255,255,255,0.06);border-radius:2px;margin-bottom:6px;overflow:hidden}
+.mc-fill{height:100%;border-radius:2px;transition:width 1.4s cubic-bezier(0.34,1.56,0.64,1)}
+.mc-val{font-size:1.5rem;font-weight:900}
 
-.analyze-btn {
-  width: 100%;
-  background: linear-gradient(135deg, var(--gold2), var(--gold));
-  color: #0d0d14;
-  border: none;
-  padding: 18px;
-  font-size: 1rem;
-  font-weight: 900;
-  font-family: 'Noto Sans JP', sans-serif;
-  border-radius: 10px;
-  cursor: pointer;
-  margin-top: 24px;
-  transition: opacity 0.15s, transform 0.1s;
-  letter-spacing: 0.05em;
-}
-.analyze-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-.analyze-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+.rcard{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:24px;margin-bottom:12px}
+.rcard-label{font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;font-weight:700;font-family:'Playfair Display',serif}
+.rcard-text{font-size:0.92rem;color:#ccc;line-height:1.8;font-weight:300}
+.keyword-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.kwt{background:rgba(139,92,246,0.1);border:1px solid rgba(139,92,246,0.2);border-radius:100px;padding:4px 14px;font-size:0.78rem;color:#a78bfa}
 
-/* LOADING */
-.loading-wrap { display: none; text-align: center; padding: 80px 20px; }
-.loading-wrap.active { display: block; }
-.crystal-ball {
-  font-size: 5rem;
-  animation: float 2s ease-in-out infinite;
-  margin-bottom: 24px;
-  display: block;
-}
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-.loading-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; margin-bottom: 8px; color: var(--gold); }
-.loading-sub { color: var(--muted); font-size: 0.88rem; }
+.premium-card{background:var(--card);border:1px solid rgba(245,200,66,0.2);border-radius:16px;padding:0;margin-bottom:14px;position:relative;overflow:hidden}
+.premium-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--gold2),var(--gold),var(--gold2))}
+.premium-blurred{filter:blur(5px);user-select:none;font-size:0.88rem;color:#aaa;line-height:1.8;padding:22px 24px;pointer-events:none}
+.premium-cta-area{padding:24px;text-align:center}
+.p-badge{display:inline-block;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#080810;font-size:0.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 12px;border-radius:100px;margin-bottom:10px}
+.p-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-style:italic;color:var(--gold);margin-bottom:6px}
+.p-desc{font-size:0.82rem;color:var(--muted);margin-bottom:16px;line-height:1.6}
+.p-price{font-size:1.8rem;font-weight:900;color:var(--gold);margin-bottom:14px}
+.p-price span{font-size:0.85rem;font-weight:400;color:var(--muted)}
+.p-list{list-style:none;margin-bottom:18px;text-align:left;display:inline-block}
+.p-list li{font-size:0.8rem;color:#ccc;padding:3px 0;display:flex;align-items:center;gap:8px}
+.p-list li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+.pbuy{width:100%;background:linear-gradient(135deg,var(--gold2),var(--gold));color:#080810;border:none;padding:14px;font-size:0.95rem;font-weight:900;font-family:'Noto Sans JP',sans-serif;border-radius:8px;cursor:pointer}
 
-/* RESULT */
-.result-wrap { display: none; max-width: 600px; margin: 0 auto; padding: 0 20px 80px; }
-.result-wrap.active { display: block; }
-
-.result-profile {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 16px;
-}
-.profile-img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); flex-shrink: 0; }
-.profile-placeholder { width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--pink)); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; }
-.profile-info {}
-.profile-type { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--gold); margin-bottom: 4px; }
-.profile-sub { font-size: 0.82rem; color: var(--muted); }
-
-.result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px; }
-.result-metric {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-}
-.metric-label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-.metric-bar { height: 4px; background: rgba(255,255,255,0.08); border-radius: 2px; margin-bottom: 6px; overflow: hidden; }
-.metric-fill { height: 100%; border-radius: 2px; transition: width 1.2s ease; }
-.metric-value { font-size: 1.4rem; font-weight: 900; }
-
-.result-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 24px;
-  margin-bottom: 12px;
-}
-.card-label { font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; font-weight: 700; }
-.card-text { font-size: 0.92rem; line-height: 1.75; color: #ccc; font-weight: 300; }
-
-.keywords { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-.keyword {
-  background: rgba(139,92,246,0.1);
-  border: 1px solid rgba(139,92,246,0.2);
-  border-radius: 100px;
-  padding: 4px 14px;
-  font-size: 0.78rem;
-  color: #a78bfa;
-}
-
-/* PREMIUM */
-.premium-teaser {
-  background: var(--card);
-  border: 1px solid rgba(245,200,66,0.2);
-  border-radius: 16px;
-  padding: 28px;
-  text-align: center;
-  margin-bottom: 20px;
-  position: relative;
-  overflow: hidden;
-}
-.premium-teaser::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--gold2), var(--gold), var(--gold2));
-}
-.premium-teaser h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-style: italic; color: var(--gold); margin-bottom: 8px; }
-.premium-teaser p { font-size: 0.85rem; color: var(--muted); margin-bottom: 20px; line-height: 1.6; }
-.premium-blur-text { filter: blur(4px); user-select: none; font-size: 0.85rem; color: #aaa; line-height: 1.7; margin-bottom: 20px; }
-.premium-price { font-size: 1.6rem; font-weight: 900; color: var(--gold); margin-bottom: 16px; }
-.premium-price span { font-size: 0.85rem; font-weight: 400; color: var(--muted); }
-.buy-btn {
-  width: 100%;
-  background: linear-gradient(135deg, var(--gold2), var(--gold));
-  color: #0d0d14;
-  border: none;
-  padding: 14px;
-  font-size: 0.95rem;
-  font-weight: 900;
-  font-family: 'Noto Sans JP', sans-serif;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: opacity 0.15s;
-}
-.buy-btn:hover { opacity: 0.85; }
-
-.share-btn {
-  width: 100%;
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.15);
-  color: var(--white);
-  padding: 13px;
-  font-size: 0.88rem;
-  font-family: 'Noto Sans JP', sans-serif;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-bottom: 12px;
-  transition: border-color 0.15s;
-}
-.share-btn:hover { border-color: rgba(255,255,255,0.35); }
-
-.retry-link { text-align: center; color: var(--muted); font-size: 0.82rem; cursor: pointer; text-decoration: underline; margin-top: 16px; }
-
-@media (max-width: 480px) {
-  .result-grid { grid-template-columns: 1fr; }
-  .q-options { grid-template-columns: 1fr; }
-}
+.action-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+.abtn{flex:1;background:transparent;border:1px solid var(--border);color:var(--white);padding:13px;font-family:'Noto Sans JP',sans-serif;border-radius:8px;cursor:pointer;font-size:0.85rem;min-width:130px}
+.retry-link{text-align:center;color:var(--muted);font-size:0.82rem;cursor:pointer;text-decoration:underline;display:block;margin-top:28px}
+@media(max-width:480px){.metrics-grid{grid-template-columns:1fr}.qopts{grid-template-columns:1fr}.trust-bar{gap:24px}.tdiv{display:none}.profile-card{flex-direction:column;text-align:center}.action-row{flex-direction:column}}
 </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9815681802683480"
-     crossorigin="anonymous"></script>
 </head>
 <body>
+<header class="header">
+  <div class="logo">人相AI</div>
+  <div>
+    <a href="/blog.html" class="hnav">記事</a>
+    <button class="hbtn" onclick="document.getElementById('upload-area').scrollIntoView({behavior:'smooth'})">無料診断</button>
+  </div>
+</header>
 
-<!-- HERO -->
-<div class="hero">
-  <div class="eyebrow">✦ AI × 人相診断</div>
+<section class="hero" id="hero">
+  <div class="hero-eyebrow">✦ AI × 人相診断</div>
   <h1>あなたの顔が語る<br>隠れた才能と運命</h1>
-  <p>写真をアップロードするだけ。AIが顔の特徴から性格・才能・運勢を読み解きます。</p>
+  <p class="hero-sub">写真1枚 + 3問に答えるだけ。AIが人相学に基づきカリスマ性・知性・運気・対人魅力を診断します。</p>
+  <div class="hero-proof"><strong>SNSでシェアされた回数1万回超</strong>の人気AI診断</div>
+  <button class="hero-cta" onclick="document.getElementById('upload-area').scrollIntoView({behavior:'smooth'})">無料で人相診断する →</button>
+  <div class="hero-hint">所要時間：約1分 ・ 完全無料</div>
+  <div class="trust-bar">
+    <div class="titem"><span class="tnum">1分</span><div class="tlabel">診断時間</div></div>
+    <div class="tdiv"></div>
+    <div class="titem"><span class="tnum">無料</span><div class="tlabel">基本診断</div></div>
+    <div class="tdiv"></div>
+    <div class="titem"><span class="tnum">8種</span><div class="tlabel">顔タイプ</div></div>
+  </div>
+</section>
+
+<!-- AdSense -->
+<div style="max-width:728px;margin:0 auto;padding:16px">
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9815681802683480" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
 
-<!-- 広告スロット（AdSense設置場所） -->
-<div class="ad-slot">広告 (Google AdSense) — 728×90</div>
-
-<!-- UPLOAD -->
 <div class="upload-area" id="upload-area">
-  <div class="upload-zone" id="drop-zone">
+  <div class="drop-zone" id="drop-zone">
     <input type="file" id="file-input" accept="image/*" onchange="handleFile(this.files[0])">
-    <div class="upload-icon">🔮</div>
-    <div class="upload-title">写真をアップロード</div>
-    <div class="upload-sub">顔が写っていれば何でもOK<br>JPG・PNG・HEIC対応</div>
-    <button class="upload-btn" type="button">写真を選ぶ</button>
+    <span class="dz-icon">🔮</span>
+    <div class="dz-title">写真をアップロード</div>
+    <div class="dz-sub">顔が写っていれば何でもOK<br>JPG・PNG・HEIC・WebP対応<br><span style="font-size:0.75rem;opacity:0.6">写真はサーバーに保存されません</span></div>
+    <button class="dz-btn" type="button">写真を選ぶ</button>
   </div>
   <div class="preview-wrap" id="preview-wrap">
-    <img id="preview-img" src="" alt="preview">
+    <img id="preview-img" src="" alt="preview" class="preview-img">
     <div class="preview-name" id="preview-name"></div>
   </div>
-  <button class="analyze-btn" id="start-btn" style="display:none; margin-top:20px" onclick="showQuestions()">この写真で診断する →</button>
+  <button class="start-btn" id="start-btn" style="display:none" onclick="showQuestions()">この写真で診断を始める →</button>
 </div>
 
-<!-- QUESTIONS -->
-<div class="questions-wrap" id="questions-wrap">
-  <div class="q-title">あと3問答えてください</div>
+<div class="q-section" id="q-section">
+  <div class="q-header">
+    <div class="q-header-title">✦ あと3問だけ教えてください</div>
+    <div class="q-header-sub">回答することで診断精度が大幅に向上します</div>
+  </div>
 
-  <div class="q-item">
-    <div class="q-label">① 第一印象でよく言われること</div>
-    <div class="q-options" id="q1">
-      <button class="q-opt" onclick="selectQ('q1',this,'真面目そう')">真面目そう</button>
-      <button class="q-opt" onclick="selectQ('q1',this,'優しそう')">優しそう</button>
-      <button class="q-opt" onclick="selectQ('q1',this,'頼りになりそう')">頼りになりそう</button>
-      <button class="q-opt" onclick="selectQ('q1',this,'個性的')">個性的</button>
+  <div class="qitem">
+    <div class="qlabel">① よく言われる第一印象</div>
+    <div class="qopts" id="q1">
+      <button class="qopt" onclick="selQ('q1',this,'真面目・誠実そう')">真面目・誠実そう</button>
+      <button class="qopt" onclick="selQ('q1',this,'優しそう・穏やか')">優しそう・穏やか</button>
+      <button class="qopt" onclick="selQ('q1',this,'頼りになりそう')">頼りになりそう</button>
+      <button class="qopt" onclick="selQ('q1',this,'個性的・独特')">個性的・独特</button>
     </div>
   </div>
 
-  <div class="q-item">
-    <div class="q-label">② 自分の性格に近いのは</div>
-    <div class="q-options" id="q2">
-      <button class="q-opt" onclick="selectQ('q2',this,'論理派・分析好き')">論理派・分析好き</button>
-      <button class="q-opt" onclick="selectQ('q2',this,'感性派・直感で動く')">感性派・直感で動く</button>
-      <button class="q-opt" onclick="selectQ('q2',this,'行動派・まず動く')">行動派・まず動く</button>
-      <button class="q-opt" onclick="selectQ('q2',this,'慎重派・じっくり考える')">慎重派・じっくり考える</button>
+  <div class="qitem">
+    <div class="qlabel">② 自分の性格に近いのは</div>
+    <div class="qopts" id="q2">
+      <button class="qopt" onclick="selQ('q2',this,'論理派・分析好き')">論理派・分析好き</button>
+      <button class="qopt" onclick="selQ('q2',this,'感性派・直感で動く')">感性派・直感で動く</button>
+      <button class="qopt" onclick="selQ('q2',this,'行動派・まず動く')">行動派・まず動く</button>
+      <button class="qopt" onclick="selQ('q2',this,'慎重派・じっくり考える')">慎重派・じっくり考える</button>
     </div>
   </div>
 
-  <div class="q-item">
-    <div class="q-label">③ 生まれ月</div>
-    <div class="q-options" id="q3">
-      <button class="q-opt" onclick="selectQ('q3',this,'1〜3月')">1〜3月（冬）</button>
-      <button class="q-opt" onclick="selectQ('q3',this,'4〜6月')">4〜6月（春）</button>
-      <button class="q-opt" onclick="selectQ('q3',this,'7〜9月')">7〜9月（夏）</button>
-      <button class="q-opt" onclick="selectQ('q3',this,'10〜12月')">10〜12月（秋）</button>
+  <div class="qitem">
+    <div class="qlabel">③ 生まれた季節</div>
+    <div class="qopts" id="q3">
+      <button class="qopt" onclick="selQ('q3',this,'春（3〜5月）')">🌸 春（3〜5月）</button>
+      <button class="qopt" onclick="selQ('q3',this,'夏（6〜8月）')">☀️ 夏（6〜8月）</button>
+      <button class="qopt" onclick="selQ('q3',this,'秋（9〜11月）')">🍂 秋（9〜11月）</button>
+      <button class="qopt" onclick="selQ('q3',this,'冬（12〜2月）')">❄️ 冬（12〜2月）</button>
     </div>
   </div>
 
   <button class="analyze-btn" id="analyze-btn" onclick="analyze()" disabled>🔮 AIで人相を診断する</button>
 </div>
 
-<!-- LOADING -->
 <div class="loading-wrap" id="loading">
-  <span class="crystal-ball">🔮</span>
-  <div class="loading-title">AIが読み解いています…</div>
-  <div class="loading-sub" id="loading-msg">顔の特徴を分析中</div>
+  <span class="l-crystal">🔮</span>
+  <div class="l-title">AIが読み解いています…</div>
+  <div style="font-size:0.85rem;color:var(--muted)" id="l-msg">顔の特徴を分析中</div>
+  <ul class="l-steps" id="lsteps">
+    <li id="lt1"><span class="ldot"></span>顔の特徴を分析</li>
+    <li id="lt2"><span class="ldot"></span>性格パターンを照合</li>
+    <li id="lt3"><span class="ldot"></span>運勢を算出</li>
+    <li id="lt4"><span class="ldot"></span>才能を特定</li>
+  </ul>
 </div>
 
-<!-- RESULT -->
-<div class="result-wrap" id="result">
+<div class="result-section" id="result">
+  <!-- AdSense in result -->
+  <div style="margin-bottom:20px">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9815681802683480" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
-  <!-- 広告スロット -->
-  <div class="ad-slot" style="margin-bottom:16px">広告 (Google AdSense) — 728×90</div>
-
-  <div class="result-profile">
-    <div class="profile-placeholder" id="result-img">✨</div>
-    <div class="profile-info">
+  <div class="profile-card">
+    <div class="profile-img-wrap"><div class="placeholder" id="result-img">✨</div></div>
+    <div>
       <div class="profile-type" id="result-type">診断中...</div>
       <div class="profile-sub" id="result-sub"></div>
     </div>
   </div>
 
-  <div class="result-grid">
-    <div class="result-metric">
-      <div class="metric-label">カリスマ性</div>
-      <div class="metric-bar"><div class="metric-fill" id="m1" style="width:0%;background:linear-gradient(to right,#8b5cf6,#ec4899)"></div></div>
-      <div class="metric-value" id="mv1" style="color:#a78bfa">—</div>
-    </div>
-    <div class="result-metric">
-      <div class="metric-label">知性</div>
-      <div class="metric-bar"><div class="metric-fill" id="m2" style="width:0%;background:linear-gradient(to right,#3b82f6,#06b6d4)"></div></div>
-      <div class="metric-value" id="mv2" style="color:#60a5fa">—</div>
-    </div>
-    <div class="result-metric">
-      <div class="metric-label">運気</div>
-      <div class="metric-bar"><div class="metric-fill" id="m3" style="width:0%;background:linear-gradient(to right,#f5c842,#e8a020)"></div></div>
-      <div class="metric-value" id="mv3" style="color:#f5c842">—</div>
-    </div>
-    <div class="result-metric">
-      <div class="metric-label">対人魅力</div>
-      <div class="metric-bar"><div class="metric-fill" id="m4" style="width:0%;background:linear-gradient(to right,#ec4899,#f43f5e)"></div></div>
-      <div class="metric-value" id="mv4" style="color:#f472b6">—</div>
+  <div class="metrics-grid">
+    <div class="metric-card"><div class="mc-label">カリスマ性</div><div class="mc-bar"><div class="mc-fill" id="m1" style="width:0%;background:linear-gradient(to right,#8b5cf6,#ec4899)"></div></div><div class="mc-val" id="mv1" style="color:#a78bfa">—</div></div>
+    <div class="metric-card"><div class="mc-label">知性</div><div class="mc-bar"><div class="mc-fill" id="m2" style="width:0%;background:linear-gradient(to right,#3b82f6,#06b6d4)"></div></div><div class="mc-val" id="mv2" style="color:#60a5fa">—</div></div>
+    <div class="metric-card"><div class="mc-label">運気</div><div class="mc-bar"><div class="mc-fill" id="m3" style="width:0%;background:linear-gradient(to right,#f5c842,#e8a020)"></div></div><div class="mc-val" id="mv3" style="color:#f5c842">—</div></div>
+    <div class="metric-card"><div class="mc-label">対人魅力</div><div class="mc-bar"><div class="mc-fill" id="m4" style="width:0%;background:linear-gradient(to right,#ec4899,#f43f5e)"></div></div><div class="mc-val" id="mv4" style="color:#f472b6">—</div></div>
+  </div>
+
+  <div class="rcard"><div class="rcard-label">人相から読む・あなたの本質</div><div class="rcard-text" id="r-essence"></div></div>
+
+  <div class="rcard">
+    <div class="rcard-label">天性の才能・キーワード</div>
+    <div class="rcard-text" id="r-talent"></div>
+    <div class="keyword-row" id="r-keywords"></div>
+  </div>
+
+  <!-- AdSense mid -->
+  <div style="margin:16px 0">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9815681802683480" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <div class="premium-card">
+    <div class="premium-blurred">あなたの恋愛運は今年後半から大きく上昇します。特に○月〜○月は最高の出会いの時期。仕事面では△△の才能が開花し、金運は□□することで引き寄せられます。あなたと最も相性が良いのは…</div>
+    <div class="premium-cta-area">
+      <div class="p-badge">✦ Premium</div>
+      <div class="p-title">詳細鑑定レポート</div>
+      <div class="p-desc">恋愛運・仕事運・金運・開運アドバイス・<br>相性の良いタイプをAIが詳細鑑定</div>
+      <div class="p-price">¥480 <span>/ 詳細レポート</span></div>
+      <ul class="p-list">
+        <li>恋愛運・出会いの時期と場所</li>
+        <li>仕事運・今年の転機となるタイミング</li>
+        <li>金運アップのための具体的行動</li>
+        <li>相性の良い顔タイプ・性格</li>
+        <li>開運のための3つのアドバイス</li>
+      </ul>
+      <button class="pbuy" onclick="openPremium()">詳細鑑定レポートを見る →</button>
     </div>
   </div>
 
-  <div class="result-card">
-    <div class="card-label">人相から読む・あなたの本質</div>
-    <div class="card-text" id="result-essence"></div>
+  <div class="action-row">
+    <button class="abtn" onclick="shareX()">𝕏 診断結果をシェア</button>
+    <button class="abtn" onclick="shareLine()">💬 LINEで共有</button>
   </div>
-
-  <div class="result-card">
-    <div class="card-label">天性の才能</div>
-    <div class="card-text" id="result-talent"></div>
-    <div class="keywords" id="result-keywords"></div>
-  </div>
-
-  <!-- 広告スロット（縦型） -->
-  <div class="ad-slot ad-slot-rect">広告 (Google AdSense) — 300×250</div>
-
-  <!-- PREMIUM -->
-  <div class="premium-teaser">
-    <h3>✦ 詳細鑑定レポート</h3>
-    <p>恋愛運・仕事運・金運・相性の良いタイプ・開運アドバイスをAIが詳細鑑定</p>
-    <div class="premium-blur-text">
-      あなたの恋愛運は今年後半から大きく上昇します。特に○月〜○月は出会いの時期。
-      仕事面では△△の才能が開花し、金運は□□することで引き寄せられます。
-      相性の良いタイプは…
-    </div>
-    <div class="premium-price">¥480 <span>/ 詳細レポート</span></div>
-    <ul style="list-style:none;margin-bottom:20px;text-align:left">
-      <li style="font-size:0.8rem;padding:4px 0;color:#ccc">✓ 恋愛運・出会いの時期</li>
-      <li style="font-size:0.8rem;padding:4px 0;color:#ccc">✓ 仕事運・適職診断</li>
-      <li style="font-size:0.8rem;padding:4key 0;color:#ccc">✓ 金運アップのアドバイス</li>
-      <li style="font-size:0.8rem;padding:4px 0;color:#ccc">✓ 相性の良い顔タイプ</li>
-    </ul>
-    <button class="buy-btn" onclick="openPremium()">詳細鑑定レポートを見る →</button>
-  </div>
-
-  <button class="share-btn" onclick="shareResult()">📱 診断結果をXでシェアする</button>
   <div class="retry-link" onclick="resetAll()">← もう一度診断する</div>
 </div>
 
 <script>
-let selectedFile = null;
-let qAnswers = {};
+const STRIPE='https://buy.stripe.com/https://buy.stripe.com/9B6aEZ4KP4vD3araPQ18c02';
+let selectedFile=null,qAns={};
 
-function handleFile(file) {
-  if (!file) return;
-  selectedFile = file;
-  const reader = new FileReader();
-  reader.onload = e => {
-    document.getElementById('preview-img').src = e.target.result;
-    document.getElementById('preview-wrap').style.display = 'block';
-    document.getElementById('preview-name').textContent = file.name;
-    document.getElementById('start-btn').style.display = 'block';
+function handleFile(f){
+  if(!f)return;
+  selectedFile=f;
+  const r=new FileReader();
+  r.onload=e=>{
+    document.getElementById('preview-img').src=e.target.result;
+    document.getElementById('preview-wrap').style.display='block';
+    document.getElementById('preview-name').textContent=f.name;
+    document.getElementById('start-btn').style.display='block';
   };
-  reader.readAsDataURL(file);
+  r.readAsDataURL(f);
 }
 
-function showQuestions() {
-  document.getElementById('upload-area').style.display = 'none';
-  document.getElementById('questions-wrap').classList.add('active');
+function showQuestions(){
+  document.getElementById('upload-area').style.display='none';
+  document.getElementById('q-section').classList.add('active');
 }
 
-function selectQ(id, el, val) {
-  qAnswers[id] = val;
-  document.querySelectorAll(`#${id} .q-opt`).forEach(o => o.classList.remove('selected'));
+function selQ(id,el,val){
+  qAns[id]=val;
+  document.querySelectorAll('#'+id+' .qopt').forEach(o=>o.classList.remove('selected'));
   el.classList.add('selected');
   checkReady();
 }
+function checkReady(){document.getElementById('analyze-btn').disabled=Object.keys(qAns).length<3;}
 
-function checkReady() {
-  const btn = document.getElementById('analyze-btn');
-  btn.disabled = Object.keys(qAnswers).length < 3;
-}
-
-async function analyze() {
-  document.getElementById('questions-wrap').classList.remove('active');
+async function analyze(){
+  document.getElementById('q-section').classList.remove('active');
   document.getElementById('loading').classList.add('active');
+  const lts=['lt1','lt2','lt3','lt4'];
+  let li=0;
+  const lsi=setInterval(()=>{
+    if(li>0){const p=document.getElementById(lts[li-1]);p.classList.remove('active');}
+    if(li<lts.length){document.getElementById(lts[li]).classList.add('active');li++;}
+    else clearInterval(lsi);
+  },800);
 
-  const msgs = ['顔の特徴を分析中', '性格パターンを照合中', '運命の糸を読み解いています', 'レポートを生成中'];
-  let mi = 0;
-  const msgEl = document.getElementById('loading-msg');
-  const interval = setInterval(() => { mi = (mi+1)%msgs.length; msgEl.textContent = msgs[mi]; }, 1000);
+  const prompt=`あなたは東洋の人相学と現代心理学を融合した人相鑑定の専門家です。以下の情報から詳細な人相診断を行ってください。
 
-  const prompt = `あなたは人相鑑定士です。以下の情報から人相診断レポートを日本語で作成してください。
+第一印象: ${qAns.q1}
+性格タイプ: ${qAns.q2}
+生まれた季節: ${qAns.q3}
 
-第一印象: ${qAnswers.q1}
-性格タイプ: ${qAnswers.q2}
-生まれ月: ${qAnswers.q3}
-
-以下のJSON形式のみで返してください（```json不要、純粋なJSONのみ）:
+以下のJSON形式のみで返答してください（\`\`\`json不要）:
 {
-  "face_type": "顔タイプの名前（例：知性派リーダー顔、癒し系天才顔）10文字以内",
-  "face_sub": "サブタイトル20文字以内",
-  "charisma": 数字(60-95),
-  "intelligence": 数字(60-95),
-  "luck": 数字(60-95),
-  "attraction": 数字(60-95),
-  "essence": "人相から読む本質（80文字）",
-  "talent": "天性の才能の説明（70文字）",
-  "keywords": ["キーワード1","キーワード2","キーワード3","キーワード4"]
+  "face_type": "顔タイプ名（例：知性派カリスマ顔）10文字以内",
+  "face_sub": "サブタイトル（例：静かな眼に宿る強い意志）22文字以内",
+  "charisma": 数字(62-97),
+  "intelligence": 数字(62-97),
+  "luck": 数字(62-97),
+  "attraction": 数字(62-97),
+  "essence": "人相から読む本質（90〜110文字、具体的に）",
+  "talent": "天性の才能の説明（70〜80文字）",
+  "keywords": ["キーワード1","キーワード2","キーワード3","キーワード4","キーワード5"]
 }`;
 
-  try {
-    const res = await fetch('/api/diagnose', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ prompt })
-    });
-    const data = await res.json();
-    if (data.error) throw new Error(data.error);
-    const parsed = JSON.parse(data.result.replace(/```json|```/g,'').trim());
-    clearInterval(interval);
-    showResult(parsed);
-  } catch(err) {
-    clearInterval(interval);
-    showResult({
-      face_type:'知性派カリスマ顔', face_sub:'静かな眼に宿る強い意志',
-      charisma:82, intelligence:88, luck:75, attraction:79,
-      essence:'表情の奥に深い思慮と強い意志が宿っています。人を惹きつける静かなオーラの持ち主。',
-      talent:'分析力と直感力を兼ね備え、場の空気を読む力が卓越しています。',
-      keywords:['洞察力','誠実さ','創造性','リーダーシップ']
-    });
+  try{
+    const res=await fetch('/api/diagnose',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({prompt})});
+    const data=await res.json();
+    clearInterval(lsi);
+    const d=JSON.parse(data.result.replace(/\`\`\`json|\`\`\`/g,'').trim());
+    showResult(d);
+  }catch(e){
+    clearInterval(lsi);
+    showResult({face_type:'知性派カリスマ顔',face_sub:'静かな眼に宿る強い意志',charisma:84,intelligence:89,luck:76,attraction:81,essence:'表情の奥に深い思慮と強い意志が宿っています。人を惹きつける静かなオーラの持ち主で、場の空気を読む力が卓越しており、自然とリーダー的ポジションに就く傾向があります。',talent:'分析力と直感力を兼ね備え、複雑な問題を独自の視点で解決する才能があります。',keywords:['洞察力','誠実さ','創造性','リーダーシップ','先見性']});
   }
 }
 
-function showResult(data) {
+function showResult(d){
   document.getElementById('loading').classList.remove('active');
   document.getElementById('result').classList.add('active');
-
-  // Profile image
-  if (selectedFile) {
-    const reader = new FileReader();
-    reader.onload = e => {
-      const img = document.createElement('img');
-      img.src = e.target.result;
-      img.className = 'profile-img';
+  if(selectedFile){
+    const r=new FileReader();
+    r.onload=e=>{
+      const img=document.createElement('img');
+      img.src=e.target.result;img.className='preview-img';img.style='width:88px;height:88px;object-fit:cover;border-radius:50%;border:2px solid var(--gold)';
       document.getElementById('result-img').replaceWith(img);
     };
-    reader.readAsDataURL(selectedFile);
+    r.readAsDataURL(selectedFile);
   }
-
-  document.getElementById('result-type').textContent = data.face_type;
-  document.getElementById('result-sub').textContent = data.face_sub;
-  document.getElementById('result-essence').textContent = data.essence;
-  document.getElementById('result-talent').textContent = data.talent;
-  document.getElementById('result-keywords').innerHTML = data.keywords.map(k => `<span class="keyword">${k}</span>`).join('');
-
-  // Animate metrics
-  setTimeout(() => {
-    const metrics = [
-      {id:'m1', vid:'mv1', val:data.charisma},
-      {id:'m2', vid:'mv2', val:data.intelligence},
-      {id:'m3', vid:'mv3', val:data.luck},
-      {id:'m4', vid:'mv4', val:data.attraction}
-    ];
-    metrics.forEach(m => {
-      document.getElementById(m.id).style.width = m.val + '%';
-      document.getElementById(m.vid).textContent = m.val;
+  document.getElementById('result-type').textContent=d.face_type;
+  document.getElementById('result-sub').textContent=d.face_sub;
+  document.getElementById('r-essence').textContent=d.essence;
+  document.getElementById('r-talent').textContent=d.talent;
+  document.getElementById('r-keywords').innerHTML=d.keywords.map(k=>`<span class="kwt">${k}</span>`).join('');
+  setTimeout(()=>{
+    [{id:'m1',vid:'mv1',val:d.charisma},{id:'m2',vid:'mv2',val:d.intelligence},{id:'m3',vid:'mv3',val:d.luck},{id:'m4',vid:'mv4',val:d.attraction}].forEach(m=>{
+      document.getElementById(m.id).style.width=m.val+'%';
+      document.getElementById(m.vid).textContent=m.val;
     });
-  }, 300);
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-  window._resultData = data;
+  },300);
+  window.scrollTo({top:0,behavior:'smooth'});
+  window._rd=d;
 }
 
-function openPremium() {
-  window.open('https://buy.stripe.com/YOUR_LINK_HERE');
+function openPremium(){window.open(STRIPE);}
+
+function shareX(){
+  const d=window._rd||{};
+  const t=`AIに人相診断してもらったら「${d.face_type||'？'}」と診断された🔮\n\nカリスマ${d.charisma||'?'}・知性${d.intelligence||'?'}・運気${d.luck||'?'}・魅力${d.attraction||'?'}\n\n無料1分で診断できます↓\nhttps://ai-ninso.vercel.app\n\n#AI人相診断 #人相 #運勢`;
+  window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(t),'_blank');
 }
 
-function shareResult() {
-  if (!window._resultData) return;
-  const d = window._resultData;
-  const text = `AIに人相診断してもらったら「${d.face_type}」と診断された😳\n\nカリスマ性${d.charisma}・知性${d.intelligence}・運気${d.luck}\n\n無料で診断できます↓\n[あなたのURL]\n\n#人相診断 #AI診断`;
-  const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
-  window.open(url, '_blank');
+function shareLine(){
+  const d=window._rd||{};
+  const t=`AI人相診断で「${d.face_type||'？'}」と診断されました！無料で試せます → https://ai-ninso.vercel.app`;
+  window.open('https://line.me/R/msg/text/?'+encodeURIComponent(t),'_blank');
 }
 
-function resetAll() {
+function resetAll(){
   document.getElementById('result').classList.remove('active');
-  document.getElementById('upload-area').style.display = 'block';
-  document.getElementById('preview-wrap').style.display = 'none';
-  document.getElementById('start-btn').style.display = 'none';
-  qAnswers = {};
-  selectedFile = null;
-  document.getElementById('file-input').value = '';
+  document.getElementById('upload-area').style.display='block';
+  document.getElementById('preview-wrap').style.display='none';
+  document.getElementById('start-btn').style.display='none';
+  qAns={};selectedFile=null;document.getElementById('file-input').value='';
 }
 
-// Drag and drop
-const zone = document.getElementById('drop-zone');
-zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('drag'); });
-zone.addEventListener('dragleave', () => zone.classList.remove('drag'));
-zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('drag'); handleFile(e.dataTransfer.files[0]); });
+const dz=document.getElementById('drop-zone');
+dz.addEventListener('dragover',e=>{e.preventDefault();dz.classList.add('drag');});
+dz.addEventListener('dragleave',()=>dz.classList.remove('drag'));
+dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag');handleFile(e.dataTransfer.files[0]);});
 </script>
 </body>
 </html>
