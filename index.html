@@ -242,6 +242,19 @@ body{background:var(--bg);color:var(--white);font-family:'Noto Sans JP',sans-ser
     <div class="keyword-row" id="r-keywords"></div>
   </div>
 
+  <div class="rcard">
+    <div class="rcard-label">向いている仕事</div>
+    <div class="rcard-text" id="r-suited-job"></div>
+  </div>
+
+  <div class="rcard">
+    <div class="rcard-label">向いている副業</div>
+    <div class="rcard-text" id="r-suited-fukugyo"></div>
+    <div id="fukugyo-cta" style="display:none;margin-top:14px;text-align:center">
+      <a id="fukugyo-cta-btn" href="#" target="_blank" rel="noopener sponsored" style="display:inline-block;background:linear-gradient(135deg,#8b5cf6,#ec4899);color:#fff;padding:13px 30px;border-radius:8px;font-weight:700;text-decoration:none;font-size:0.88rem">あなたに合う副業案件を見る →</a>
+    </div>
+  </div>
+
   <!-- AdSense mid -->
   <div style="margin:16px 0">
     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9815681802683480" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
@@ -274,7 +287,11 @@ body{background:var(--bg);color:var(--white);font-family:'Noto Sans JP',sans-ser
 </div>
 
 <script>
-const STRIPE='https://buy.stripe.com/https://buy.stripe.com/9B6aEZ4KP4vD3araPQ18c02';
+const STRIPE='https://buy.stripe.com/9B6aEZ4KP4vD3araPQ18c02';
+
+// ★★★ 副業案件アフィリエイトCTA設定欄 ★★★
+// 副業マッチング・スキルシェア系（ココナラ/クラウドワークス等）のASP提携後にURLを設定してください
+const FUKUGYO_CTA_URL = '';
 let selectedFile=null,qAns={};
 
 function handleFile(f){
@@ -330,7 +347,9 @@ async function analyze(){
   "attraction": 数字(62-97),
   "essence": "人相から読む本質（90〜110文字、具体的に）",
   "talent": "天性の才能の説明（70〜80文字）",
-  "keywords": ["キーワード1","キーワード2","キーワード3","キーワード4","キーワード5"]
+  "keywords": ["キーワード1","キーワード2","キーワード3","キーワード4","キーワード5"],
+  "suited_job": "向いている仕事・職種タイプ（具体的に40〜60文字、例：人前に立つ営業職や企画職で本来の魅力が発揮されます）",
+  "suited_fukugyo": "向いている副業タイプ（具体的に40〜60文字、例：対人スキルを活かしたコンサルや講師業の副業が相性良好です）"
 }`;
 
   try{
@@ -341,7 +360,7 @@ async function analyze(){
     showResult(d);
   }catch(e){
     clearInterval(lsi);
-    showResult({face_type:'知性派カリスマ顔',face_sub:'静かな眼に宿る強い意志',charisma:84,intelligence:89,luck:76,attraction:81,essence:'表情の奥に深い思慮と強い意志が宿っています。人を惹きつける静かなオーラの持ち主で、場の空気を読む力が卓越しており、自然とリーダー的ポジションに就く傾向があります。',talent:'分析力と直感力を兼ね備え、複雑な問題を独自の視点で解決する才能があります。',keywords:['洞察力','誠実さ','創造性','リーダーシップ','先見性']});
+    showResult({face_type:'知性派カリスマ顔',face_sub:'静かな眼に宿る強い意志',charisma:84,intelligence:89,luck:76,attraction:81,essence:'表情の奥に深い思慮と強い意志が宿っています。人を惹きつける静かなオーラの持ち主で、場の空気を読む力が卓越しており、自然とリーダー的ポジションに就く傾向があります。',talent:'分析力と直感力を兼ね備え、複雑な問題を独自の視点で解決する才能があります。',keywords:['洞察力','誠実さ','創造性','リーダーシップ','先見性'],suited_job:'分析力を活かせる企画職やコンサル職、人を惹きつける力を活かせるリーダー職と相性良好です。',suited_fukugyo:'知見を活かした個人コンサルやオンライン講師、SNSでの情報発信系の副業がおすすめです。'});
   }
 }
 
@@ -362,6 +381,12 @@ function showResult(d){
   document.getElementById('r-essence').textContent=d.essence;
   document.getElementById('r-talent').textContent=d.talent;
   document.getElementById('r-keywords').innerHTML=d.keywords.map(k=>`<span class="kwt">${k}</span>`).join('');
+  document.getElementById('r-suited-job').textContent=d.suited_job||'';
+  document.getElementById('r-suited-fukugyo').textContent=d.suited_fukugyo||'';
+  if(FUKUGYO_CTA_URL){
+    document.getElementById('fukugyo-cta-btn').href=FUKUGYO_CTA_URL;
+    document.getElementById('fukugyo-cta').style.display='block';
+  }
   setTimeout(()=>{
     [{id:'m1',vid:'mv1',val:d.charisma},{id:'m2',vid:'mv2',val:d.intelligence},{id:'m3',vid:'mv3',val:d.luck},{id:'m4',vid:'mv4',val:d.attraction}].forEach(m=>{
       document.getElementById(m.id).style.width=m.val+'%';
